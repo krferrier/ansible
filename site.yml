@@ -26,9 +26,21 @@
 # - name: Install Micromamba
 #   hosts: ubuntu
 #   become: True
-
 #   roles: 
 #     - mambaorg.micromamba
+#   vars:
+#     root_prefix: /home/kendra/micromamba
+#     root_prefix_condarc:
+#       channels:
+#         - conda-forge
+#     packages:
+#       - mamba
+
+- name: Configure micromamba
+  hosts: ubuntu
+  become: True
+  roles: 
+    - micromamba
 
 # - name: Install GCSfuse
 #   hosts: ubuntu
@@ -44,12 +56,12 @@
 #   roles:
 #     - google.cloud.gcloud
 
-- name: Install Rstudio-server with Docker
-  hosts: ubuntu
-  become: True
+# - name: Install Rstudio-server with Docker
+#   hosts: ubuntu
+#   become: True
 
-  roles:
-    - docker
+#   roles:
+#     - docker
 
 
 
