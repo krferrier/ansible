@@ -1,0 +1,12 @@
+cli_essentials:        
+  - vim
+  - nano
+  - git
+  - stow
+  - tmux
+  - rsync
+  - htop
+  - screenfetch
+  - golang
+
+ansible_python_interpreter: "/usr/bin/python3"

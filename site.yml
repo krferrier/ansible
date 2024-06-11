@@ -1,0 +1,57 @@
+---
+# This playbook installs basic necessities for computational workloads
+# - name: Configure CLI tools
+#   hosts: ubuntu
+#   become: True
+
+#   roles:
+#     - common
+    
+# - name: Install Singularity
+#   hosts: ubuntu
+#   become: True
+#   vars:
+#     - singularity_go_path: "/usr/bin/go"
+
+#   roles:
+#     - CyVerse-Ansible.singularity
+
+# - name: Install Docker
+#   hosts: ubuntu 
+#   become: True
+  
+#   roles:
+#     - geerlingguy.docker
+
+# - name: Install Micromamba
+#   hosts: ubuntu
+#   become: True
+
+#   roles: 
+#     - mambaorg.micromamba
+
+# - name: Install GCSfuse
+#   hosts: ubuntu
+#   become: True
+
+#   roles: 
+#     - google.cloud.gcsfuse
+
+# - name: Install gcloud
+#   hosts: ubuntu
+#   become: True
+
+#   roles:
+#     - google.cloud.gcloud
+
+- name: Install Rstudio-server with Docker
+  hosts: ubuntu
+  become: True
+  tasks:
+    - name: Pull Docker image
+      docker_image:
+        name: rocker/vers
+        source: pull
+        tag: latest
+
+

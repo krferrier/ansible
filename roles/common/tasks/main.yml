@@ -1,0 +1,11 @@
+---
+- name: Installing group CLI essentials
+  ansible.builtin.apt:
+    name: "{{ cli_essentials }}"
+    state: present
+
+- name: Install Rstudio-server with Docker
+  docker_image:
+    name: rocker/vers
+    source: pull
+    tag: latest

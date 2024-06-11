@@ -1,0 +1,8 @@
+---
+roles:
+  - name: CyVerse-Ansible.singularity
+  - name: geerlingguy.docker
+  - name: mambaorg.micromamba
+
+collections:
+  - name: google.cloud
