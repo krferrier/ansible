@@ -1,0 +1,22 @@
+---
+- name: Pull Rocker/Verse Docker image
+  docker_image:
+    name: rocker/verse
+    source: pull
+    tag: latest
+
+- name: Make a directory for the Rstudio workspace
+  ansible.builtin.file:
+    path: ~/rstudio_workspace
+    state: directory
+
+- name: Start Docker Rstudio
+  shell: >
+    docker run -d --restart always --name rstudio
+    -v ./.rstudio_config:/home/rstudio/.config/rstudio
+    -v ~/rstudio_workspace:/home/rstudio/workspace
+    -v /home/kendra/Projects:/home/rstudio/Projects        
+    -e PASSWORD=secret
+    -e ROOT=true
+    -e USERID=1001 -e GROUPID=1001
+    -p 8787:8787 rocker/verse
