@@ -1,67 +1,81 @@
 ---
 # This playbook installs basic necessities for computational workloads
-# - name: Configure CLI tools
-#   hosts: ubuntu
-#   become: True
+#- name: Configure CLI tools
+#  hosts: ubuntu
+#  become: True
+#  roles:
+#    - common
 
-#   roles:
-#     - common
-    
-# - name: Install Singularity
-#   hosts: ubuntu
-#   become: True
-#   vars:
-#     - singularity_go_path: "/usr/bin/go"
-
-#   roles:
-#     - CyVerse-Ansible.singularity
-
-# - name: Install Docker
-#   hosts: ubuntu 
-#   become: True
-  
-#   roles:
-#     - geerlingguy.docker
-
-# - name: Install Micromamba
-#   hosts: ubuntu
-#   become: True
-#   roles: 
-#     - mambaorg.micromamba
-#   vars:
-#     root_prefix: /home/kendra/micromamba
-#     root_prefix_condarc:
-#       channels:
-#         - conda-forge
-#     packages:
-#       - mamba
-
-- name: Configure micromamba
+- name: install vscode
   hosts: ubuntu
   become: True
-  roles: 
-    - micromamba
+  roles:
+    - ngetchell.vscode
+  vars:
+    vscode_install: true
+    vscode_insiders_install: false
+    
+# - name: Install Singularity
+#  hosts: ubuntu
+#  become: True
+#  vars:
+#    - singularity_go_path: "/usr/bin/go"
+
+#  roles:
+#    - CyVerse-Ansible.singularity
+
+# - name: Install Docker
+#  hosts: ubuntu 
+#  become: True
+  
+#  roles:
+#    - geerlingguy.docker
+
+# - name: Install Micromamba
+#  hosts: ubuntu
+#  become: True
+#  roles: 
+#    - mambaorg.micromamba
+#  vars:
+#    root_prefix: /home/kendra/micromamba
+#    root_prefix_condarc:
+#      channels:
+#        - conda-forge
+#    packages:
+#      - mamba
+
+# - name: Configure micromamba
+#  hosts: ubuntu
+#  become: True
+#  roles: 
+#    - micromamba
 
 # - name: Install GCSfuse
-#   hosts: ubuntu
-#   become: True
+#  hosts: ubuntu
+#  become: True
 
-#   roles: 
-#     - google.cloud.gcsfuse
+#  roles: 
+#   - google.cloud.gcsfuse
 
 # - name: Install gcloud
-#   hosts: ubuntu
-#   become: True
+#  hosts: ubuntu
+#  become: True
 
-#   roles:
-#     - google.cloud.gcloud
+#  roles:
+#    - google.cloud.gcloud
 
 # - name: Install Rstudio-server with Docker
-#   hosts: ubuntu
-#   become: True
+#  hosts: ubuntu
+#  become: True
 
-#   roles:
-#     - docker
+#  roles:
+#    - docker
 
-
+- name: Install google chrome
+  hosts: ubuntu
+  become: True
+  roles:
+    - darkwizard242.googlechrome
+  vars:
+  - googlechrome_desired_state: present
 

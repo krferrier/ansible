@@ -1,5 +1,8 @@
 - name: Initialize micromamba
-  shell: micromamba shell init --shell=bash --prefix=/home/kendra/micromamba
+  shell: >
+    eval "$(micromamba shell hook --shell=bash)" &&
+    micromamba activate --prefix=/home/kendra/micromamba
 
-- name: Source bashrc
-  shell: source ~/.bashrc
+- name: Initialize mamba
+  shell: mamba init bash && source /home/kendra/.bashrc
+

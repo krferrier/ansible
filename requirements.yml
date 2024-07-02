@@ -3,6 +3,7 @@ roles:
   - name: CyVerse-Ansible.singularity
   - name: geerlingguy.docker
   - name: mambaorg.micromamba
-
+  - name: ngetchell.vscode
+  - name: darkwizard242.googlechrome
 collections:
   - name: google.cloud
